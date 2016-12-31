@@ -25,15 +25,14 @@ gem 'rubocop', '0.46.0', require: false
 # Thor is a toolkit for command-line interfaces
 gem 'thor', '0.19.1'
 
-# Seamless JWT authentication for Rails API
-gem 'knock', '2.0'
-
-group :development, :test do
-  # Call 'binding.pry' to stop execution and get a debugger console
-  gem 'pry', '0.10.4'
+group :test do
+  # Rspec supports
+  gem 'rspec-rails'
 end
 
 group :development do
+  # Call 'binding.pry' to stop execution and get a debugger console
+  gem 'pry', '0.10.4'
   # Spring speeds up development by keeping application running in background
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '2.0.1'
