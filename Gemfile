@@ -22,6 +22,8 @@ gem 'rack-cors', '0.4.0', require: 'rack/cors'
 # RuboCop is a Ruby static code analyzer
 gem 'rubocop', '0.46.0', require: false
 
+gem 'thor', '0.19.1'
+
 group :development, :test do
   # Call 'binding.pry' to stop execution and get a debugger console
   gem 'pry', '0.10.4'
