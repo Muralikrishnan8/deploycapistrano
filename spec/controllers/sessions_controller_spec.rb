@@ -33,14 +33,12 @@ RSpec.describe SessionsController, type: :controller do
       it 'Destroy session' do
         user = User.create(first_name: 'fname', email: 'xyz@xyz.com', password: 'password')
         post :destroy, params: { api_key: user.token, format: 'json' }
-        JSON.parse(response.body)['status'] == 'success'
         expect(JSON.parse(response.body)['status']).to eq('success')
       end
     end
     context 'with invalid params' do
       it 'Destroy session failed' do
         post :destroy, params: { format: 'json' }
-        JSON.parse(response.body)['status'] == 'error'
         expect(JSON.parse(response.body)['status']).to eq('error')
       end
     end
