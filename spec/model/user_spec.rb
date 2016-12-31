@@ -9,15 +9,15 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid without first_name' do
-    contact = User.new(email: 'xyz@anymail.com', password: 'password')
-    contact.save
-    expect(contact).to_not be_valid
+    user = User.new(email: 'xyz@anymail.com', password: 'password')
+    user.save
+    expect(user).to_not be_valid
   end
 
   it 'is invalid without email' do
-    contact = User.new(first_name: 'fname', password: 'password')
-    contact.save
-    expect(contact).to_not be_valid
+    user = User.new(first_name: 'fname', password: 'password')
+    user.save
+    expect(user).to_not be_valid
   end
 
   it 'is valid with same email' do
@@ -28,8 +28,8 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid without password' do
-    contact = User.new(first_name: 'fname', email: 'xyz@anymail.com')
-    contact.save
-    expect(contact).not_to be_valid
+    user = User.new(first_name: 'fname', email: 'xyz@anymail.com')
+    user.save
+    expect(user).not_to be_valid
   end
 end
