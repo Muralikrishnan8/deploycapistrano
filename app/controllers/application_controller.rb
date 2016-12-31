@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   # valdating user based on token
   def validate_user
-    token = params['api_key'] || request.headers['X-Api-Key']
+    token = params['api_key'] || request.headers['api_key']
     @user = User.find_by token: token if token.present?
     render json: { status: :error, data: 'Invalid Api Key' } unless @user.present?
   end
