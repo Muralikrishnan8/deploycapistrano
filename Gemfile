@@ -25,6 +25,9 @@ gem 'rubocop', '0.46.0', require: false
 # Thor is a toolkit for command-line interfaces
 gem 'thor', '0.19.1'
 
+# Seamless JWT authentication for Rails API
+gem 'bcrypt-ruby'
+
 group :test do
   # Rspec supports
   gem 'rspec-rails'
