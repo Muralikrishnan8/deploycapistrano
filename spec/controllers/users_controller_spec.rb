@@ -32,4 +32,21 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  # Spec for users signup
+  describe 'Destroy user' do
+    context 'with valid user' do
+      it 'creates a new user' do
+        user = User.create(first_name: 'fname', email: 'xyz@xyz.com', password: 'password')
+        delete :destroy, params: { id: user.try(:id) }
+        expect(response).to be_success
+      end
+    end
+    context 'with invalid params' do
+      it 'with invalid user' do
+        delete :destroy, params: { id: 1 }
+        expect(response).to_not be_success
+      end
+    end
+  end
 end
