@@ -15,7 +15,12 @@ class User < ApplicationRecord
       first_name: first_name,
       last_name: last_name,
       email: email,
-      token: token
+      api_key: token
     }
+  end
+
+  # To destroy the session token
+  def remove_token
+    update(token: nil)
   end
 end

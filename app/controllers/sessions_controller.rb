@@ -15,4 +15,12 @@ class SessionsController < ApplicationController
       render json: { status: :error, data: 'Invalid login details' }
     end
   end
+
+  # To destroy existing session
+  # Request Params : api_key
+  # Result: Session will be destroyed upon valid api_key
+  def destroy
+    current_user.remove_token
+    render json: { status: :success, data: 'Successfully signed out' }
+  end
 end
