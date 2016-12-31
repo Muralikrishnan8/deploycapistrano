@@ -22,7 +22,11 @@ gem 'rack-cors', '0.4.0', require: 'rack/cors'
 # RuboCop is a Ruby static code analyzer
 gem 'rubocop', '0.46.0', require: false
 
+# Thor is a toolkit for command-line interfaces
 gem 'thor', '0.19.1'
+
+# Seamless JWT authentication for Rails API
+gem 'knock', '2.0'
 
 group :development, :test do
   # Call 'binding.pry' to stop execution and get a debugger console
