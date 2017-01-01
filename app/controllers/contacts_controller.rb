@@ -7,7 +7,11 @@ class ContactsController < ApplicationController
 
   # Listing contacts
   def index
-    contacts = current_user.contacts
+    if params[:query].present?
+      contacts = current_user.contact_search(params[:query])
+    else
+      contacts = current_user.contacts
+    end
     render json: { status: :success, data: contacts.map{|contact| contact.to_json} }
   end
 

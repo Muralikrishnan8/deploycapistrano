@@ -22,6 +22,11 @@ class User < ApplicationRecord
     }
   end
 
+  def contact_search(query)
+    query = "%#{query}%"
+    contacts.where('first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR phone ILIKE ?', query, query, query, query)
+  end
+
   # To destroy the session token
   def remove_token
     update(token: nil)
