@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true, case_sensitive: false
 
+  # Associations
+  has_many :contacts, dependent: :destroy
+
   # To form json data
   def to_json
     {
