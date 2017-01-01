@@ -49,7 +49,7 @@ class ContactsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
-    @contact = current_user.contacts.where('id =?', params[:id]).first
+    @contact = current_user.contacts.friendly.find(params[:id])
     render json: { status: :error, data: 'Contact was not found.' } unless @contact.present?
   end
 

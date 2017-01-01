@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 class Contact < ApplicationRecord
+  # friendlyId / Slug
+  extend FriendlyId
+  friendly_id :email, use: [:slugged, :finders]
+
   # Associations
   belongs_to :user
   # Validations

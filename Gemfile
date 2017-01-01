@@ -28,17 +28,22 @@ gem 'thor', '0.19.1'
 # Seamless JWT authentication for Rails API
 gem 'bcrypt-ruby'
 
+gem 'friendly_id', '5.1.0'
+
 group :test do
   # Rspec supports
   gem 'rspec-rails'
 end
 
 group :development do
-  # Call 'binding.pry' to stop execution and get a debugger console
-  gem 'pry', '0.10.4'
   # Spring speeds up development by keeping application running in background
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '2.0.1'
+end
+
+group :development, :test do
+  # Call 'binding.pry' to stop execution and get a debugger console
+  gem 'pry', '0.10.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
