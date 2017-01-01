@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
 
    # contacts details
   def show
-    render json: { status: :success, data: @contact }
+    render json: { status: :success, data: @contact.to_json }
   end
 
   # save/update existing contact
