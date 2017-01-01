@@ -53,6 +53,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.14)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -177,6 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  friendly_id (= 5.1.0)
   jbuilder (= 2.6.1)
   paperclip (= 5.1.0)
   pg (= 0.19.0)
