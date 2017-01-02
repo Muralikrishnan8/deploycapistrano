@@ -11,15 +11,15 @@
     $routeProvider
       .when('/', {
         controller: 'ContactsController',
-        templateUrl: 'templates/home/home.html'
+        templateUrl: 'templates/contacts/index.html'
       })
       .when('/login', {
         controller: 'LoginController',
-        templateUrl: 'templates/login/login.html'
+        templateUrl: 'templates/login/form.html'
       })
       .when('/register', {
-        controller: 'RegisterController',
-        templateUrl: 'templates/register/register.html'
+        controller: 'RegistrationController',
+        templateUrl: 'templates/registrations/form.html'
       })
       .otherwise({ redirectTo: '/login' });
   }
