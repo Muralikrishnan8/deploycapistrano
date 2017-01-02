@@ -12,7 +12,7 @@
         success(function (response) {
           if(response.status == "success"){
             storeUserCredentials(response.data.api_key);
-            $location.path('/')
+            $location.path('/contacts')
           } else{
             console.log("Invalid login");
           }

@@ -9,7 +9,7 @@
   config.$inject = ['$routeProvider', '$locationProvider'];
   function config($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
+      .when('/contacts', {
         controller: 'ContactsController',
         templateUrl: 'templates/contacts/index.html'
       })

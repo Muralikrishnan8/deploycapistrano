@@ -8,7 +8,7 @@ angular.module('ContactApp')
       success(function (response) {
         if(response.status == "success"){
           storeUserCredentials(response.data.api_key);
-          $location.path('/')
+          $location.path('/contacts')
         } else{
           console.log("Invalid login");
         }
@@ -29,13 +29,18 @@ angular.module('ContactApp')
   };
 
   function destroyUserCredentials() {
-    $http.defaults.headers.common['api_key'] = undefined;
+    $http.defaults.headers.common['HTTP_API_KEY'] = undefined;
     window.localStorage.removeItem(CONTACT_API_TOKEN);
   }
 
   function isAuthenticated() {
     var api_key = window.localStorage.getItem(CONTACT_API_TOKEN);
-    return (api_key ? true : false)
+    if(api_key) {
+      $http.defaults.headers.common['api_key'] = api_key;
+      return true
+    } else{
+      return false
+    }
   }
 
   function notAuthenticated() {

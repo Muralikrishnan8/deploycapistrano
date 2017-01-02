@@ -21,7 +21,8 @@ class Contact < ApplicationRecord
       address: address,
       birthday: birthday,
       circle: circle,
-      created_at: created_at
+      created_at: created_at,
+      slug: slug
     }
   end
 
