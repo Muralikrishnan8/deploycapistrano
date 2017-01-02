@@ -1,4 +1,4 @@
-class AddSlugRoContacts < ActiveRecord::Migration[5.0]
+class AddSlugToContacts < ActiveRecord::Migration[5.0]
   def change
     add_column :contacts, :slug, :string, unique: true
     remove_index :contacts, :user_id
