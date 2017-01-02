@@ -26,6 +26,7 @@ angular.module('ContactApp')
 
   var logout = function() {
     destroyUserCredentials();
+    $location.path('/login')
   };
 
   function destroyUserCredentials() {

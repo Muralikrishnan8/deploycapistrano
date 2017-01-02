@@ -81,6 +81,11 @@
         .error(function (data) {
           console.log(data);
       });
+    };
+
+    $scope.logout = function()
+    {
+      AuthService.logout();
     }
 
   }
