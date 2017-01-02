@@ -27,11 +27,17 @@ class Contact < ApplicationRecord
 
   protected
 
-  # Check Email addresses between contacts must be unique
   def check_email
     if email.blank?
       errors.add(:email, 'Email is required to save your contacts')
-    elsif !(email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)
+    else
+      check_email_format
+    end
+  end
+
+  # Check Email addresses between contacts must be unique
+  def check_email_format
+    if !(email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)
       errors.add(:email, 'Invalid email format')
     elsif email_changed? && Contact.exists?(email: email, user_id: user_id)
       errors.add(:email, 'Email is already added into your contacts')

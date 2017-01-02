@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
@@ -14,7 +15,7 @@ RSpec.describe ContactsController, type: :controller do
   describe 'GET #show' do
     it 'valid contact details' do
       contact = Contact.create(first_name: 'fname', last_name: 'fname', email: 'xyz@anymail.com', phone: '1234567890', user_id: user.try(:id))
-      get :show, params: {id: contact.try(:id), api_key: user.try(:token) }
+      get :show, params: { id: contact.try(:id), api_key: user.try(:token) }
       expect(JSON.parse(response.body)['status']).to eq('success')
     end
     it 'invalid contact details' do
@@ -51,31 +52,13 @@ RSpec.describe ContactsController, type: :controller do
   describe 'Delete #destroy' do
     it 'with valid params' do
       contact = Contact.create(first_name: 'fname', last_name: 'fname', email: 'xyz@anymail.com', phone: '1234567890', user_id: user.try(:id))
-      get :show, params: {id: contact.try(:id), api_key: user.try(:token) }
+      get :show, params: { id: contact.try(:id), api_key: user.try(:token) }
       expect(JSON.parse(response.body)['status']).to eq('success')
     end
 
     it 'with invalid params' do
-      get :show, params: {id: 0, api_key: user.try(:token) }
+      get :show, params: { id: 0, api_key: user.try(:token) }
       expect(JSON.parse(response.body)['status']).to eq('error')
     end
   end
-
-
-
-
-  # describe 'DELETE #destroy' do
-  #   it 'destroys the requested contact' do
-  #     contact = Contact.create! valid_attributes
-  #     expect {
-  #       delete :destroy, params: {id: contact.to_param}, session: valid_session
-  #     }.to change(Contact, :count).by(-1)
-  #   end
-
-  #   it 'redirects to the contacts list' do
-  #     contact = Contact.create! valid_attributes
-  #     delete :destroy, params: {id: contact.to_param}, session: valid_session
-  #     expect(response).to redirect_to(contacts_url)
-  #   end
-  # end
 end
