@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 
 # Use rails as framework
-gem 'rails', '5.0.1'
+gem 'rails'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '0.19.0'
@@ -30,6 +30,8 @@ gem 'bcrypt-ruby'
 
 gem 'friendly_id', '5.1.0'
 
+
+
 group :test do
   # Rspec supports
   gem 'rspec-rails'
@@ -39,8 +41,14 @@ group :development do
   # Spring speeds up development by keeping application running in background
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
 end
 
+ 
 group :development, :test do
   # Call 'binding.pry' to stop execution and get a debugger console
   gem 'pry', '0.10.4'
@@ -48,3 +56,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', '1.2.2', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'unicorn', '~> 4.9'
+gem 'sidekiq', '~> 4.0.1'
+gem 'redis-rails', '~> 4.0.0'
+# Use Capistrano for deployment
+  # gem 'Capistrano-rails', group:development
+gem 'figaro'
+
