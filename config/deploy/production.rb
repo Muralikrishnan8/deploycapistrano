@@ -59,3 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+# server '54.174.239.30', user: 'ubuntu', roles: %w{web app db}
+
+server '52.91.195.111', user: 'ubuntu', roles: %w{web app db}
+set :ssh_options, { forward_agent: true }
